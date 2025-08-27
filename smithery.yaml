@@ -1,0 +1,64 @@
+name: hipaa-compliance-guardian
+version: 2.3.0
+description: A comprehensive MCP server providing HIPAA compliance guidance and tools for developers
+
+runtime: nodejs18
+
+entrypoint: server.js
+
+files:
+  - server.js
+  - hipaa-content.json
+  - package.json
+
+environment:
+  NODE_ENV: production
+
+mcp:
+  name: HIPAA Compliance Guardian
+  version: 2.3.0
+  description: Provides comprehensive HIPAA compliance guidance, security checklists, and developer tools for building compliant healthcare applications
+
+tools:
+  - name: evaluateComplianceNeed
+    description: Provides a decision flowchart and examples to determine if an application needs to be HIPAA compliant
+  - name: getComplianceRoadmap
+    description: Returns a step-by-step roadmap for an organization to become HIPAA compliant
+  - name: getCoreDefinitions
+    description: Provides foundational definitions for terms like PHI, Business Associate, and De-Identification
+  - name: getSecurityRuleSafeguards
+    description: Provides a developer-focused guide to the Administrative, Physical, and Technical Safeguards
+  - name: getMobileSecurityControls
+    description: Returns a checklist of specific security controls for mobile and wearable apps
+  - name: getPenaltyInformation
+    description: Returns the up-to-date, four-tiered structure of civil monetary penalties for HIPAA violations
+  - name: getValidationAndAuditInfo
+    description: Explains how compliance is demonstrated through third-party audits and attestations
+  - name: getDeveloperConsiderations
+    description: Provides guidance on key developer decisions and architectural choices
+  - name: getBreachResponseChecklist
+    description: Provides an actionable checklist for incident response according to HIPAA Breach Notification Rule
+  - name: getSecureCodingChecklist
+    description: Provides a checklist for developers to ensure HIPAA compliance throughout the SDLC
+  - name: getVendorVettingChecklist
+    description: Provides a checklist for evaluating third-party vendors to ensure HIPAA compliance
+  - name: getApiSecurityChecklist
+    description: Provides a general-purpose checklist for securing backend APIs based on OWASP best practices
+  - name: getPrivacyPolicyPoints
+    description: Provides a checklist of key sections and topics for user-facing privacy policies
+  - name: getGeneralDataSecurityChecklist
+    description: Provides a general checklist for handling sensitive PII data
+  - name: confirmCodeCompliance
+    description: Validates code against compliance checklists and provides point-by-point justification
+
+metadata:
+  author: HIPAA Compliance Guardian Team
+  license: ISC
+  repository: https://github.com/your-org/ultimate-hipaa-guide
+  keywords:
+    - hipaa
+    - compliance
+    - healthcare
+    - security
+    - mcp
+    - model-context-protocol

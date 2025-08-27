@@ -2,15 +2,18 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 import * as fs from 'fs';
+import * as path from 'path';
 
 // --- 1. Load the Final HIPAA Knowledge Base ---
-const knowledgeBasePath = './hipaa-content.json';
+const knowledgeBasePath = path.join(process.cwd(), 'hipaa-content.json');
 let hipaaData;
 try {
   hipaaData = JSON.parse(fs.readFileSync(knowledgeBasePath, 'utf-8'));
+  console.log('✅ HIPAA knowledge base loaded successfully');
 } catch (error) {
   console.error(`FATAL ERROR: Could not load knowledge base from ${knowledgeBasePath}.`);
   console.error('Please ensure the hipaa-content.json file exists in the same directory.');
+  console.error('Error details:', error);
   process.exit(1); // Exit if the core data is missing
 }
 
@@ -421,7 +424,44 @@ server.tool(
 console.log('✅ All compliance tools have been defined.');
 
 // --- 4. Start Listening for Agent Connections ---
-const transport = new StdioServerTransport();
-server.connect(transport);
+async function startServer() {
+  try {
+    const transport = new StdioServerTransport();
+    await server.connect(transport);
+    
+    console.log('🚀 HIPAA Compliance Guardian MCP Server is running and awaiting connection...');
+    console.log('📋 Available tools:');
+    console.log('  - evaluateComplianceNeed');
+    console.log('  - getComplianceRoadmap');
+    console.log('  - getCoreDefinitions');
+    console.log('  - getSecurityRuleSafeguards');
+    console.log('  - getMobileSecurityControls');
+    console.log('  - getPenaltyInformation');
+    console.log('  - getValidationAndAuditInfo');
+    console.log('  - getDeveloperConsiderations');
+    console.log('  - getBreachResponseChecklist');
+    console.log('  - getSecureCodingChecklist');
+    console.log('  - getVendorVettingChecklist');
+    console.log('  - getApiSecurityChecklist');
+    console.log('  - getPrivacyPolicyPoints');
+    console.log('  - getGeneralDataSecurityChecklist');
+    console.log('  - confirmCodeCompliance');
+  } catch (error) {
+    console.error('❌ Failed to start MCP server:', error);
+    process.exit(1);
+  }
+}
 
-console.log('🚀 HIPAA Compliance Guardian MCP Server is running and awaiting connection...');
+// Handle graceful shutdown
+process.on('SIGINT', () => {
+  console.log('\n🛑 Shutting down HIPAA Compliance Guardian MCP Server...');
+  process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+  console.log('\n🛑 Shutting down HIPAA Compliance Guardian MCP Server...');
+  process.exit(0);
+});
+
+// Start the server
+startServer();

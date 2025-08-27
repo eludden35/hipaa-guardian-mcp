@@ -1,0 +1,28 @@
+{
+  "name": "hipaa-compliance-guardian",
+  "version": "2.3.0",
+  "description": "A comprehensive MCP server providing HIPAA compliance guidance and tools for developers",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "build": "tsc",
+    "dev": "tsx server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2",
+    "tsx": "^4.20.5"
+  },
+  "mcpServers": {
+    "hipaa-compliance-guardian": {
+      "command": "node",
+      "args": ["server.js"],
+      "env": {}
+    }
+  }
+}
