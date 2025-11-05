@@ -2,6 +2,10 @@
 
 A Model Context Protocol (MCP) server that provides comprehensive HIPAA compliance guidance for developers building healthcare applications. This server offers expert knowledge and tools to help ensure your applications meet HIPAA Security and Privacy Rule requirements.
 
+<a href="https://glama.ai/mcp/servers/@eludden35/hipaa-guardian-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@eludden35/hipaa-guardian-mcp/badge" alt="HIPAA Guardian Server MCP server" />
+</a>
+
 ## 🏥 What is HIPAA?
 
 The Health Insurance Portability and Accountability Act (HIPAA) establishes national standards for protecting sensitive patient health information. This MCP server provides developers with:
