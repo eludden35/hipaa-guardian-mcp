@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/eludden35-hipaa-guardian-mcp-badge.png)](https://mseep.ai/app/eludden35-hipaa-guardian-mcp)
+
 # HIPAA Compliance Guardian MCP Server
 
 A Model Context Protocol (MCP) server that provides comprehensive HIPAA compliance guidance for developers building healthcare applications. This server offers expert knowledge and tools to help ensure your applications meet HIPAA Security and Privacy Rule requirements.
